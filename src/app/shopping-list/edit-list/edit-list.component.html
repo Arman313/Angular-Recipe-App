@@ -1,0 +1,30 @@
+<form #listForm ="ngForm" (ngSubmit)="addIngredient(formData)" #formData="ngForm">
+<!-- ingredient info -->
+  <div class="row mt-2">
+    <div class="col-6">
+      <div class="form-group">
+          <label class="" for="ingredient">Ingredient Name:</label>
+        <input ngModel name="name" class="form-control" type="text" placeholder="Apples" required>
+      
+      </div>
+  
+    </div>  
+    <div class="col-3 ">
+      <div class="form-group">
+          <label for="amount">Amount:</label>
+        <input ngModel name="amount" class="form-control" type="number" placeholder="Enter Amount" required pattern="^[1-9]+[0-9]*$">
+      </div>
+    </div>
+  </div>
+<!-- BTN -->
+<div class="row">
+  <div class="col-12">
+    <button [disabled]="!formData.valid"  type="submit"  class="btn btn-success mr-2">{{ editMode? 'Update' : 'Add' }} </button>
+    <button type="button" (click)="clearForm()" class="btn btn-secondary mr-2">Cancel </button>
+    <button *ngIf="editMode" (click)="deleteIngredient()" class="btn btn-danger mr-2 ">Delete </button>
+    <span  *ngIf="!formData.control.valid && formData.control.touched" class="" class=" mt-4 alert alert-danger">Please Enter ingredient and amount first</span>
+  </div>
+ 
+</div>
+
+</form>

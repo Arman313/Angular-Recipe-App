@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark text-white ">
+  <a class="navbar-brand" href="#">Recip 4 You</a>
+  <!-- btn for drop down -->
+  <button appDropdown #drop="appDropDown" class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- dropw down tabs -->
+  <div class="collapse navbar-collapse text-white  " [ngClass]="{'show':drop.isOpen}" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto text-white ">
+      <li *ngIf="isAuth" class="nav-item " routerLinkActive="active">
+        <a routerLink="/recipes" class="nav-link">Recipe <fa-icon [icon]="faList"></fa-icon> <span
+            class="sr-only">(current)</span></a>
+      </li>
+    
+      <li class="nav-item">
+        <a routerLink="/shopping-list" routerLinkActive="active" class="nav-link">Shopping-list <fa-icon
+            [icon]="faShoppingCart"></fa-icon></a>
+      </li>
+      <li *ngIf="!isAuth" class="nav-item">
+        <a routerLink="/signin" routerLinkActive="active" class="nav-link">Login <fa-icon [icon]="faSignInAlt">
+          </fa-icon></a>
+      </li>
+
+      <li *ngIf="isAuth" class="nav-item">
+        <a class="btn" style="cursor: pointer;" (click)="logOut()" routerLinkActive="active" class="nav-link ">Log out
+          <fa-icon [icon]=" faSignOutAlt">
+          </fa-icon></a>
+      </li>
+      <li appDropdown #dropp="appDropDown" class="nav-item dropdown " [ngClass]="{'show':dropp.isOpen}">
+        <a style="cursor: pointer;" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Manege Recipes
+        </a>
+        <div class="dropdown-menu" [ngClass]="{'show':dropp.isOpen}" aria-labelledby="navbarDropdown">
+          <a (click)=newRecipe() class="dropdown-item">Add Recipe <fa-icon [icon]="plus">
+            </fa-icon></a>
+          <a style="cursor: pointer;" (click)="onSaveChanges()" class="dropdown-item" >Save Changes</a>
+   
+        
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</nav>

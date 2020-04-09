@@ -1,0 +1,19 @@
+#mainLogin
+{ 
+
+   background-image: url("./images/loginBG.jpg") ;
+   background-size: cover;
+   height: 900px;
+ 
+}
+.topleft{
+   margin-top: 150px; 
+   /* margin-left:150px ;   */
+}
+
+#formDiv{
+   
+   background: rgba(0, 0, 0, 0.5);
+
+   height: 900px;
+}  

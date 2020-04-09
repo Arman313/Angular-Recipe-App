@@ -1,0 +1,25 @@
+<div class="container">
+    
+  
+<div class="row">
+<div>
+
+    <img  src="../../assets/images/cart2.jpg" class="img-fluid" alt="Responsive image">
+
+</div>
+    
+    <div class="col-lg-12 col-md-12 col-sm-12">
+            <app-edit-list  ></app-edit-list>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-12 w-50 mt-3">
+        <ul *ngFor="let ingredient of ingredients let i =index" class="list-group">
+           <a (click)="editItem(i)" style="cursor: pointer;" > <li class="list-group-item">{{ ingredient.name }} <span class="float-right">x {{ ingredient.amount }}</span></li></a>
+          </ul>
+    </div>
+   
+</div>
+</div>

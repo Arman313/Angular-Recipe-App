@@ -1,0 +1,24 @@
+
+  <div  class="card" style="width: 30em; ;">
+    <img src="{{ recipe.imgURL }}" class="card-img-top" alt="{{ recipe.name }}">
+ 
+    <div class="card-body">
+      <h5  class="card-title">{{ recipe.name }}:</h5>
+     
+      <div class="dropdown " appDropdown #drop="appDropDown">
+        <button  class="btn btn-secondary dropdown-toggle mb-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Manage
+        </button>
+        <div style="cursor: pointer;" class="dropdown-menu " [ngClass]="{'show':drop.isOpen}"  aria-labelledby="dropdownMenuButton" >
+          <a style="cursor: pointer;" (click)="addToList()" class="dropdown-item" >Add to Shopping list <fa-icon [icon]="faPlus"></fa-icon> </a>
+          <a style="cursor: pointer;" (click)="editRecipe()" class="dropdown-item" >Edit  <fa-icon [icon]="faPen"></fa-icon></a>
+          <a style="cursor: pointer;" (click)="deleteRecipe()" class="dropdown-item" >Delete <fa-icon [icon]="faTrash"></fa-icon></a>
+        </div>
+      </div>
+      <ul   class="list-group">
+        <li *ngFor="let ingredient of recipe.ingredients"  class="list-group-item">{{ ingredient.name }} <span class="float-right">x{{ ingredient.amount}}</span></li>
+      </ul>
+      
+
+    </div>
+  </div>
