@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit,OnDestroy  {
       private Rservice: RecipeService,
 
        ){
-
   }
 
   ngOnInit(){
@@ -45,7 +44,6 @@ export class HeaderComponent implements OnInit,OnDestroy  {
     console.log('works');
     
   }
-
   
   onSaveChanges(){
     
