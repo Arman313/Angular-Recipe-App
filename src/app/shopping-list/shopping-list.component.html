@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     
   
 <div class="row">
@@ -15,7 +15,7 @@
 
 <div class="row">
 
-    <div class="col-lg-12 w-100 mt-3">
+    <div class="col-lg-12 w-50 mt-3">
         <ul *ngFor="let ingredient of ingredients let i =index" class="list-group">
            <a (click)="editItem(i)" style="cursor: pointer;" > <li class="list-group-item">{{ ingredient.name }} <span class="float-right">x {{ ingredient.amount }}</span></li></a>
           </ul>

@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { AuthService } from './../auth/auth.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faShoppingCart, faList, faSignInAlt, faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -18,8 +17,6 @@ export class HeaderComponent implements OnInit,OnDestroy  {
   faList = faList;
   plus =faPlus
   isAuth = false;
-  url:string;
-
   private sub : Subscription;
 
   constructor
@@ -28,19 +25,13 @@ export class HeaderComponent implements OnInit,OnDestroy  {
      private router: Router,
       private route: ActivatedRoute,
       private Rservice: RecipeService,
-      private location:Location,
 
        ){
-
-       
   }
 
   ngOnInit(){
     this.sub=this.userService.user.subscribe(user=>{
       this.isAuth = !!user;
-      this.url =  this.location.path();
-      console.log(this.url);
-      
     })
   }
 

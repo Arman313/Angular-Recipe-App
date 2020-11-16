@@ -13,11 +13,8 @@ export class AuthComponent{
 
     userIcon = faUser;
     lock = faLock
-    url:string;
 
-    constructor(private authService : AuthService,private router: Router){
-     
-    }
+    constructor(private authService : AuthService,private router: Router){}
 
     isLogin = true;
     isLoading = false;
@@ -36,7 +33,6 @@ export class AuthComponent{
             this.authService.login(email,password).subscribe(res=>{
                 this.isLoading = false;
                 this.router.navigate(['/recipes']);
-                this.url = '/recipes';
             },
             errMsg=>{
                 this.error = errMsg
