@@ -1,6 +1,6 @@
 # Recipe-App
 
-## to login into the app
+## To login into the app
 
 to login use: arman@gmail.com password: 123456.
 
